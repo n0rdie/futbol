@@ -2,14 +2,14 @@ require 'CSV'
 require './lib/game'
 require './lib/games'
 
-RSpec.describe Games do
+RSpec.describe Game do
     it "can correctly create new Games class instance" do
-        games = Games.new
-
+        games = Game.new
+# no need to count, will increase over time
         expect(games.array.length).to eq(7441)
-
+# game = that game it found...so Games?
         game2012030221 = games.array.find { |game| game.game_id == 2012030221}
-
+# game###.detail = that detail
         expect(game2012030221.game_id).to eq(2012030221)
         expect(game2012030221.season).to eq(20122013)
         expect(game2012030221.type).to eq("Postseason")
