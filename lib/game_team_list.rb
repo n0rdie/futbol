@@ -3,15 +3,15 @@ require './spec/spec_helper'
 
 #comment
 
-class GameTeams
-  attr_reader :array
+class GameTeamList
+  attr_reader :list
 
   def initialize
-    @array = []
-    array_fill
+    @list = []
+    list_fill
   end
 
-  def array_fill 
+  def list_fill 
     CSV.foreach('./data/game_teams.csv', headers: true, header_converters: :symbol) do |row|
       game_id                  = row[:game_id].to_i
       team_id                  = row[:team_id].to_i
@@ -31,7 +31,7 @@ class GameTeams
 
       new_game_team = GameTeam.new(game_id, team_id, hoa, result, settled_in, head_coach, goals, shots, tackles, pim, power_play_opportunities, power_play_goals, face_off_win_percentage, giveaways, tackles)
 
-      @array.append(new_game_team)
+      @list.append(new_game_team)
     end
   end
 end

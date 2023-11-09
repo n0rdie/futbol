@@ -2,14 +2,14 @@ require 'CSV'
 require './lib/team'
 
 class TeamList
-    attr_reader :array
+    attr_reader :list
 
     def initialize
-        @array = []
-        array_fill
+        @list = []
+        list_fill
     end
 
-    def array_fill
+    def list_fill
         CSV.foreach('./data/teams.csv', headers: true, header_converters: :symbol) do |row|
             team_id = row[:team_id].to_i
             franchise_id = row[:franchiseid].to_i
@@ -20,7 +20,7 @@ class TeamList
         
             new_team = Team.new(team_id,franchise_id,team_name,abbreviation,stadium,link)
         
-            @array.append(new_team)
+            @list.append(new_team)
         end
     end
 end
