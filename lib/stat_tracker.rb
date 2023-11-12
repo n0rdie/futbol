@@ -29,4 +29,14 @@ class StatTracker
     @game_list.count_of_games_by_season
   end
 
+  def highest_scoring_home_team
+    p @game_list.highest_scoring_home_team
+    @team_list.get_name_from_team_id(@game_list.highest_scoring_home_team)
+  end
+
+  def highest_scoring_visitor
+    p @game_list.highest_scoring_visitor
+    @team_list.get_name_from_team_id(@game_list.highest_scoring_visitor)
+  end
+
 end

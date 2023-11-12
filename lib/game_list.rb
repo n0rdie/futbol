@@ -37,4 +37,71 @@ class GameList
     end
   end
 
+  def average_goals_per_game
+    total_goals = 0
+    @games.each do |game|
+      total_goals += game.away_goals
+      total_goals += game.home_goals
+    end
+    total_goals
+  end
+
+  def average_goals_by_season
+    seasons = {}
+    @games.each do |game|
+      if seaons.has_key?(game.season) == false
+
+      else
+        seasons[game.season] 
+      end
+    end
+  end
+
+  def highest_scoring_home_team
+    teams_score = {}
+    @games.each do |game|
+      if teams_score.has_key?(game.home_team_id)
+        teams_score[game.home_team_id]["total_goals"] += game.home_goals
+        teams_score[game.home_team_id]["game_count"] += 1
+      else
+        teams_score[game.home_team_id] = {"total_goals"=>game.home_goals, "game_count"=>1}
+      end
+    end
+
+    highest_average_score = 0.0
+    highest_team_id = nil
+
+    teams_score.each do |team_id, data|
+      if data["total_goals"].to_f / data["game_count"].to_f > highest_average_score
+        highest_average_score = data["total_goals"].to_f / data["game_count"].to_f
+        highest_team_id = team_id
+      end
+    end
+
+    highest_team_id
+  end
+
+  def highest_scoring_visitor
+    teams_score = {}
+    @games.each do |game|
+      if teams_score.has_key?(game.away_team_id)
+        teams_score[game.away_team_id]["total_goals"] += game.away_goals
+        teams_score[game.away_team_id]["game_count"] += 1
+      else
+        teams_score[game.away_team_id] = {"total_goals"=>game.away_goals, "game_count"=>1}
+      end
+    end
+
+    highest_average_score = 0.0
+    highest_team_id = nil
+
+    teams_score.each do |team_id, data|
+      if data["total_goals"].to_f / data["game_count"].to_f > highest_average_score
+        highest_average_score = data["total_goals"].to_f / data["game_count"].to_f
+        highest_team_id = team_id
+      end
+    end
+
+    highest_team_id
+  end
 end

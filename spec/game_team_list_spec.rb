@@ -24,6 +24,7 @@ RSpec.describe GameTeamList do
     expect(game2012030221.giveaways).to eq(17)
     expect(game2012030221.takeaways).to eq(7)
 
+    
     game2016020251 = game_teams.game_teams.find { |game| game.game_id == 2016020251 && game.team_id == 25}
 
     expect(game2016020251.game_id).to eq(2016020251)
@@ -41,6 +42,7 @@ RSpec.describe GameTeamList do
     expect(game2016020251.faceoffwinpercentage).to eq(51.2)
     expect(game2016020251.giveaways).to eq(8)
     expect(game2016020251.takeaways).to eq(5)
+    
 
     #2016020251,25,home,WIN,REG,Lindy Ruff,3,5,7,4,7,2,51.2,8,5
   end

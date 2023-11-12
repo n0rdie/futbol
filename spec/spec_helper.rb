@@ -1,5 +1,6 @@
-# require 'simplecov'
-# SimpleCov.start
+require 'simplecov'
+gem 'simplecov', require: false, group: :test
+SimpleCov.start
 
 require 'CSV'
 require 'pry'

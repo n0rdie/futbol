@@ -16,4 +16,9 @@ class TeamList
     end
   end
 
+  def get_name_from_team_id(id)
+    p @teams
+    (@teams.find { |team| team.team_id == id}).team_name
+  end
+
 end

@@ -55,12 +55,12 @@ RSpec.describe StatTracker do
     expect(@stat_tracker.percentage_ties).to eq(0.05)
   end
 
-  xit 'can return the highest scoring visitor team' do
-    expect(@team_list.highest_scoring_visitor).to eq("FC Dallas")
+  it 'can return the highest scoring visitor team' do
+    expect(@stat_tracker.highest_scoring_visitor).to eq("FC Dallas")
   end
   
-  xit 'can return the highest scoring home team' do
-    expect(@team_list.highest_scoring_home_team).to eq("New York City FC")
+  it 'can return the highest scoring home team' do
+    expect(@stat_tracker.highest_scoring_home_team).to eq("New York City FC")
   end
   
 end
