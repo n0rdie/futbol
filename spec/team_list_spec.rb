@@ -4,7 +4,7 @@ RSpec.describe TeamList do
   before(:each) do
     locations = {
       games: "./data/games_subset.csv",
-      teams: "./data/teams_subset.csv",
+      teams: "./data/teams.csv",
       game_teams: "./data/game_teams_subset.csv"
     }
     stat_tracker = StatTracker.from_csv(locations)
@@ -22,6 +22,10 @@ RSpec.describe TeamList do
   it 'can create teams' do
     @team_list.create_teams("./data/teams_subset.csv")
     expect(@team_list.teams).to all(be_an_instance_of Team)
+  end
+
+  it 'can correcly assign team values' do
+    #p @team_list
   end
 
 end

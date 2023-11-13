@@ -10,6 +10,7 @@ class TeamList
   end
   
   def create_teams(path)
+    p path
     data = CSV.parse(File.read(path), headers: true, header_converters: :symbol)
     data.map do |datum|
       Team.new(datum, self)
@@ -17,7 +18,7 @@ class TeamList
   end
 
   def get_name_from_team_id(id)
-    p @teams
+    # p @teams
     (@teams.find { |team| team.team_id == id}).team_name
   end
 
